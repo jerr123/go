@@ -6,6 +6,9 @@
 // for maps, on behalf of the fmt and text/template packages.
 // It is not guaranteed to be efficient and works only for types
 // that are valid map keys.
+
+// fmtsort包为 maps fmt 和 text/template 包提供了一个通用的稳定的排序机制
+// 他不能保证高效，仅适用于有效映射键值类型 //有效 key 的 map 类型 
 package fmtsort
 
 import (
@@ -16,8 +19,13 @@ import (
 // Note: Throughout this package we avoid calling reflect.Value.Interface as
 // it is not always legal to do so and it's easier to avoid the issue than to face it.
 
+// 注意：在这整个包中我们避免调用 reflect.Value.Interface 因为这样做并不总是合法的，并且避免这个 issue 比面对要变得更容易
+
 // SortedMap represents a map's keys and values. The keys and values are
 // aligned in index order: Value[i] is the value in the map corresponding to Key[i].
+
+// SorteMap「有序map」表示 map 的键和值；键和值是按索引顺序对齐：Value[i] 是与 Key[i] 对应的 map 中的值
+
 type SortedMap struct {
 	Key   []reflect.Value
 	Value []reflect.Value

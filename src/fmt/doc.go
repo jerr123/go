@@ -7,6 +7,8 @@
 	to C's printf and scanf.  The format 'verbs' are derived from C's but
 	are simpler.
 
+	Package fmt 实现格式化 I/O ，它的功能类似于 C 的 printf 和 sacnf. 
+	格式化的「动词」来自 C，但是比 C 更简单.
 
 	Printing
 

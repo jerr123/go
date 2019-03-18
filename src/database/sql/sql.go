@@ -13,6 +13,8 @@
 //
 // For usage examples, see the wiki page at
 // https://golang.org/s/sqlwiki.
+
+// Package sql 为数据库提供围绕 SQL (或类 SQL) 的通用接口
 package sql
 
 import (

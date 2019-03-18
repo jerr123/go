@@ -4,6 +4,10 @@
 
 // Package bytes implements functions for the manipulation of byte slices.
 // It is analogous to the facilities of the strings package.
+
+// bytes包 实现了「byte slices」的操作函数
+// 它类似于 strings包 的功能
+
 package bytes
 
 import (

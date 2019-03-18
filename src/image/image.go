@@ -19,6 +19,9 @@
 //
 // See "The Go image package" for more details:
 // https://golang.org/doc/articles/image_package.html
+
+// Package image 实现基本的二维图形库
+
 package image
 
 import (

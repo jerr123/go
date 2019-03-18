@@ -5,6 +5,10 @@
 // Package bufio implements buffered I/O. It wraps an io.Reader or io.Writer
 // object, creating another object (Reader or Writer) that also implements
 // the interface but provides buffering and some help for textual I/O.
+
+// bufio包 实现了 buffered I/O.
+// 它封装了 io.Reader 或 io.Writer 对象，创建另一个实现了接口的对象 (Reader 或者 Writer) 但是提供缓冲以及一些对文本 I/O 的帮助 
+
 package bufio
 
 import (

@@ -23,6 +23,9 @@ import "io"
 // decode data written with any previously released version,
 // subject to issues such as security fixes.
 // See the Go compatibility document for background: https://golang.org/doc/go1compat
+
+// Hash 是所有散列函数实现的通用接口
+
 type Hash interface {
 	// Write (via the embedded io.Writer interface) adds more data to the running hash.
 	// It never returns an error.

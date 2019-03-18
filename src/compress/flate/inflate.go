@@ -5,6 +5,9 @@
 // Package flate implements the DEFLATE compressed data format, described in
 // RFC 1951.  The gzip and zlib packages implement access to DEFLATE-based file
 // formats.
+
+// flate 包实现了 DEFLATE 的数据压缩格式，如 RFC 1951 中所述。 gzip/zlib 包实现了对基于 DEFLATE 格式文件的访问
+
 package flate
 
 import (

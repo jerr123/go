@@ -13,6 +13,9 @@
 // The TIFF file format uses a similar but incompatible version of the LZW
 // algorithm. See the golang.org/x/image/tiff/lzw package for an
 // implementation.
+
+// lzw 包实现了 Lempel-Ziv-Welch 数据压缩格式
+
 package lzw
 
 // TODO(nigeltao): check that PDF uses LZW in the same way as GIF,

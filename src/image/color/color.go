@@ -3,6 +3,9 @@
 // license that can be found in the LICENSE file.
 
 // Package color implements a basic color library.
+
+// Package color 实现基本颜色库
+
 package color
 
 // Color can convert itself to alpha-premultiplied 16-bits per channel RGBA.

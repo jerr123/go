@@ -3,6 +3,9 @@
 // license that can be found in the LICENSE file.
 
 // Package crypto collects common cryptographic constants.
+
+// 常见的加密常量集合
+
 package crypto
 
 import (
@@ -13,6 +16,7 @@ import (
 
 // Hash identifies a cryptographic hash function that is implemented in another
 // package.
+
 type Hash uint
 
 // HashFunc simply returns the value of h so that Hash implements SignerOpts.

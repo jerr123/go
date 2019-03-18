@@ -4,6 +4,10 @@
 
 // Package gzip implements reading and writing of gzip format compressed files,
 // as specified in RFC 1952.
+
+// gzip包 实现了 gzip 格式压缩文件的读写
+// 如 RFC 1952 中所述
+
 package gzip
 
 import (

@@ -6,7 +6,6 @@ package main_test
 
 import (
 	"bytes"
-	"cmd/go/internal/cache"
 	"cmd/internal/sys"
 	"context"
 	"debug/elf"
@@ -167,7 +166,6 @@ func TestMain(m *testing.M) {
 		defer removeAll(testTmpDir)
 	}
 
-	testGOCACHE = cache.DefaultDir()
 	if canRun {
 		testBin = filepath.Join(testTmpDir, "testbin")
 		if err := os.Mkdir(testBin, 0777); err != nil {

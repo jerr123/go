@@ -3,6 +3,9 @@
 // license that can be found in the LICENSE file.
 
 // Package errors implements functions to manipulate errors.
+
+// 实现了操作错误的方法
+
 package errors
 
 import (

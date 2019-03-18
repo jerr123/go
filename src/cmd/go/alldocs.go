@@ -89,10 +89,10 @@
 //
 // When compiling packages, build ignores files that end in '_test.go'.
 //
-// The -o flag forces build to write the resulting executable or object
-// to the named output file or directory, instead of the default behavior described
-// in the last two paragraphs. If the named output is a directory that exists,
-// then any resulting executables will be written to that directory.
+// The -o flag, only allowed when compiling a single package,
+// forces build to write the resulting executable or object
+// to the named output file, instead of the default behavior described
+// in the last two paragraphs.
 //
 // The -i flag installs the packages that are dependencies of the target.
 //
@@ -202,8 +202,7 @@
 // so go clean is mainly concerned with object files left by other
 // tools or by manual invocations of go build.
 //
-// If a package argument is given or the -i or -r flag is set,
-// clean removes the following files from each of the
+// Specifically, clean removes the following files from each of the
 // source directories corresponding to the import paths:
 //
 // 	_obj/            old object directory, left from Makefiles

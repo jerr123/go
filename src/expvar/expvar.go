@@ -19,6 +19,9 @@
 // this way, link this package into your program:
 //	import _ "expvar"
 //
+
+// 为公共变量提供标准化接口
+
 package expvar
 
 import (

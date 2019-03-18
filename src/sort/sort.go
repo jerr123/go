@@ -6,6 +6,9 @@
 
 // Package sort provides primitives for sorting slices and user-defined
 // collections.
+
+// Package sort 提供了用于排序切片和用户定义集合的原函数
+
 package sort
 
 // A type, typically a collection, that satisfies sort.Interface can be

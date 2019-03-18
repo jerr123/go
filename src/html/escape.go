@@ -3,6 +3,9 @@
 // license that can be found in the LICENSE file.
 
 // Package html provides functions for escaping and unescaping HTML text.
+
+// Package html 提供了对 HTML 文本进行转码和转义的功能
+
 package html
 
 import (

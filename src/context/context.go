@@ -45,6 +45,9 @@
 //
 // See https://blog.golang.org/context for example code for a server that uses
 // Contexts.
+
+// 包上下文定义了Context类型，它跨API边界和进程之间携带截止日期，取消信号和其他请求范围的值。
+
 package context
 
 import (

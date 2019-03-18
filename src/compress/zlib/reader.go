@@ -21,6 +21,9 @@ and to read that data back:
 	io.Copy(os.Stdout, r)
 	r.Close()
 */
+
+// zlib 包 实现了 zlib 数据压缩格式的读写
+
 package zlib
 
 import (

@@ -5,6 +5,8 @@
 // Package gif implements a GIF image decoder and encoder.
 //
 // The GIF specification is at https://www.w3.org/Graphics/GIF/spec-gif89a.txt.
+
+// 实现 gif 图像解码器和编码器
 package gif
 
 import (

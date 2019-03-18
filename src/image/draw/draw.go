@@ -6,6 +6,9 @@
 //
 // See "The Go image/draw package" for an introduction to this package:
 // https://golang.org/doc/articles/image_draw.html
+
+// Package draw 提供图像合成功能
+
 package draw
 
 import (
