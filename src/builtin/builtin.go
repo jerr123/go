@@ -13,6 +13,7 @@
 	builtin包 提供了 go 的预先声明的标识符文档
 	这里的文档项目实际上并不在 builtin包 里面
 	但是他们描述了允许 godoc 提供语言标识符的文档
+	就是预先声明基础类型
 */
 package builtin
 

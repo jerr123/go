@@ -23,10 +23,11 @@ func New(text string) error {
 	runtime.Callers(2, s.frames[:])
 	return &errorString{text, nil, s}
 }
-
+// ps 这里找了半天没找着 error 类型在哪里定义的，最后发现 error 是 go 中的一种内置类型
+// 在 Package builtin 里面文件的末尾
 func init() {
 	errinternal.NewError = func(text string, err error) error {
-		var s Frame
+		var s Frame // 2019/03/05/02:16 TODO: 找到 Frame 类型的定义
 		runtime.Callers(3, s.frames[:])
 		return &errorString{text, err, s}
 	}
