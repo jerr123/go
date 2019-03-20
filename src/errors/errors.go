@@ -34,7 +34,7 @@ func New(text string) error {
 func init() {
 	errinternal.NewError = func(text string, err error) error {
 		var s Frame // 2019/03/05/02:16 //TODO: 找到 Frame 类型的定义
-		runtime.Callers(3, s.frames[:])
+		runtime.Callers(3, s.frames[:]) // runtime.Callers 定义在 extern.go
 		return &errorString{text, err, s}
 	}
 }
