@@ -17,17 +17,23 @@ import (
 //
 // The returned error contains a Frame set to the caller's location and
 // implements Formatter to show this information when printed with details.
+
+// New 将 text 格式化成 error 返回
+//
+// 返回的 error 包含一个用来定位调用者的集合，并实现了 Formatter，以在打印详细信息的时候显示此信息
 func New(text string) error {
 	// Inline call to errors.Callers to improve performance.
+	// Inline 调用 errors.Callers 以提高性能
 	var s Frame
 	runtime.Callers(2, s.frames[:])
 	return &errorString{text, nil, s}
 }
 // ps 这里找了半天没找着 error 类型在哪里定义的，最后发现 error 是 go 中的一种内置类型
 // 在 Package builtin 里面文件的末尾
+// 先看 init
 func init() {
 	errinternal.NewError = func(text string, err error) error {
-		var s Frame // 2019/03/05/02:16 TODO: 找到 Frame 类型的定义
+		var s Frame // 2019/03/05/02:16 //TODO: 找到 Frame 类型的定义
 		runtime.Callers(3, s.frames[:])
 		return &errorString{text, err, s}
 	}

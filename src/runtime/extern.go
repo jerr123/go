@@ -198,6 +198,7 @@ func Caller(skip int) (pc uintptr, file string, line int, ok bool) {
 // returned PCs, since these cannot account for inlining or return
 // program counter adjustment.
 //go:noinline
+// 2019/02/21 02:09 TODO:翻译注释
 func Callers(skip int, pc []uintptr) int {
 	// runtime.callers uses pc.array==nil as a signal
 	// to print a stack trace. Pick off 0-length pc here
@@ -205,6 +206,7 @@ func Callers(skip int, pc []uintptr) int {
 	if len(pc) == 0 {
 		return 0
 	}
+	// callls 定义在 traceback.go 的 808 行左右
 	return callers(skip, pc)
 }
 

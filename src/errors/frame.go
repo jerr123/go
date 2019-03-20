@@ -9,6 +9,10 @@ import (
 )
 
 // A Frame contains part of a call stack.
+// 一个 Frame 包含调用堆栈的一部分
+
+// 定义一个 Frame 结构体.
+// 里面是一个长为 2 的 uintptr 数组
 type Frame struct {
 	frames [1]uintptr
 }
