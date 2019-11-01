@@ -13,6 +13,7 @@ import (
 
 // A Pool is a set of temporary objects that may be individually saved and
 // retrieved.
+// 池 是一个可以单独保存和检索的临时对象
 //
 // Any item stored in the Pool may be removed automatically at any time without
 // notification. If the Pool holds the only reference when this happens, the
@@ -41,6 +42,7 @@ import (
 // free list.
 //
 // A Pool must not be copied after first use.
+// 首次使用后不允许复制
 type Pool struct {
 	noCopy noCopy
 

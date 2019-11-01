@@ -16,6 +16,9 @@ import (
 
 // Strings for use with buffer.WriteString.
 // This is less overhead than using buffer.Write with byte arrays.
+
+//用于 buffer.WriteString 的字符串。
+//这比 buffer.Write 使用字节数组的开销要少。
 const (
 	commaSpaceString  = ", "
 	nilAngleString    = "<nil>"
@@ -73,6 +76,8 @@ type GoStringer interface {
 }
 
 // Use simple []byte instead of bytes.Buffer to avoid large dependency.
+// 采用简单的 []byte 代替 bytes.Buffer 从而避免引入大量依赖
+// 实现 buffer 的各种 Write
 type buffer []byte
 
 func (b *buffer) Write(p []byte) {
@@ -103,6 +108,9 @@ func (bp *buffer) WriteRune(r rune) {
 }
 
 // pp is used to store a printer's state and is reused with sync.Pool to avoid allocations.
+
+// pp 用于存储打印机的状态并且结合 sync.Pool 来避免内存分配。
+// sync.Pool 是一个异步进程池
 type pp struct {
 	buf buffer
 
@@ -110,9 +118,11 @@ type pp struct {
 	arg interface{}
 
 	// value is used instead of arg for reflect values.
+	// 用 value 代替 reflect 的 的参数
 	value reflect.Value
 
 	// fmt is used to format basic items such as integers or strings.
+	// fmt 用于格式化基本项目如整形、字符串
 	fmt fmt
 
 	// reordered records whether the format string used argument reordering.
@@ -125,12 +135,17 @@ type pp struct {
 	erroring bool
 }
 
+// 定义了一个 Pool 结构体,并将 New 初始化为 return pp 的匿名函数
+// 初始化一个 pp 的 pool
 var ppFree = sync.Pool{
 	New: func() interface{} { return new(pp) },
 }
 
 // newPrinter allocates a new pp struct or grabs a cached one.
+// 函数从 pp 的 pool 中获取一个 pp 如果 pool 里面没有则分配一个
+// 并初始化
 func newPrinter() *pp {
+	// Pool.Get() 返回一个 interface{} 并转换成 pp 类型
 	p := ppFree.Get().(*pp)
 	p.panicking = false
 	p.erroring = false
@@ -139,6 +154,7 @@ func newPrinter() *pp {
 }
 
 // free saves used pp structs in ppFree; avoids an allocation per invocation.
+// 释放 pp: 存入 pp 对象池
 func (p *pp) free() {
 	// Proper usage of a sync.Pool requires each entry to have approximately
 	// the same memory cost. To obtain this property when the stored type
@@ -178,6 +194,7 @@ func (p *pp) Flag(b int) bool {
 
 // Implement Write so we can call Fprintf on a pp (through State), for
 // recursive use in custom verbs.
+// 追加 字节数组
 func (p *pp) Write(b []byte) (ret int, err error) {
 	p.buf.Write(b)
 	return len(b), nil
@@ -185,6 +202,7 @@ func (p *pp) Write(b []byte) (ret int, err error) {
 
 // Implement WriteString so that we can call io.WriteString
 // on a pp (through state), for efficiency.
+// 写入 string
 func (p *pp) WriteString(s string) (ret int, err error) {
 	p.buf.WriteString(s)
 	return len(s), nil
@@ -196,7 +214,8 @@ func (p *pp) WriteString(s string) (ret int, err error) {
 // It returns the number of bytes written and any write error encountered.
 func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error) {
 	p := newPrinter()
-	p.doPrintf(format, a)
+	p.doPrintf(format, a) // TODO 理解 doPrintf 
+	// w.Write 先不管具体的,暂时理解为一个想控制台打印 buff 数组的方法
 	n, err = w.Write(p.buf)
 	p.free()
 	return
